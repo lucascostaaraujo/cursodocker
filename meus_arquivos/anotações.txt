@@ -1,0 +1,26 @@
+------------redes no docker---------------
+
+- Bridge =  O container que tiver o drive de rede em modo bridge, fica mais protegido, pois é criada uma ponte entre a interface do container e a interface do host, criando assim uma camada de isolamento entre ambas as partes, porém a mesma acaba sofrendo um certo atraso em relação às redes com drive host, que será explicada abaixo.
+
+- Host= O container que possui drive em modo host, atua de forma mais insegura, o container replica as mesmas configurações da máquina host na interface do container.
+
+
+- None= O container criado com esse drive de rede, possuirá apenas a interface de loopback, e não haverá comunicação com outros container pois o mesmo não estará em uma rede.
+
+--------------------------------------------------------------------------------
+
+
+---------------Docker-compose--------------------------------------------
+
+Nota: o docker compose é um serviço de orquestração de containers, onde podemos startar um conjunto de containers automaticamente conforme configurado no arquivo do docker-compose.
+
+
+
+
+-----------------micro-serviços-------------------------------------------
+
+nota: trata-se de vários serviços dividualizados no ambiente, no conceito de docker por exemplo, em um ambiente de aplicação em produção, teriamos o seguinte senário abaixo;
+
+    para a aplcação subir, teriamos que ter um serviço de banco de dados, outro com o node para o back-end, outro com o Nginx para o front-end.
+    Nesse caso, teriamos cada serviço desses rodando em um container separado em um host, e todos se comunicando entre sí, e em caso de atualizações teriamos menos impactos e os riscos caíriam bastante, deixando o ambiente sempre mais enxuto e seguro.
+
