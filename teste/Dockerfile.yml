@@ -1,0 +1,10 @@
+FROM nginx:latest
+
+ENV APP_NAME=localhost
+ENV PATH=/usr/share/nginx/html/
+ENV EXTERNAL_PORT=80
+ENV INTERNAL_PORT=9090
+
+COPY *.html ${PATH}
+
+EXPOSE 80:9090
