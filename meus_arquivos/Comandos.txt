@@ -48,3 +48,4 @@ docker container run -d --name container4 --net host alpine sleep 1000  ---> cri
 ---------------Comandos utilizados no dia a dia---------------------------
 
 Verificar as portas em execução no sistema: sudo netstat -nutpl
+acessar terminal de um container:  docker exec -it meu_container /bin/bash

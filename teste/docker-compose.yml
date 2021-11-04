@@ -10,6 +10,6 @@ services:
     env_file:
       - .env
     volumes:
-      - ./frontend://etc/share/nginx/html/
+      - ./frontend/:/usr/share/nginx/html/
     ports:
       - ${EXTERNAL_PORT}:${INTERNAL_PORT}
