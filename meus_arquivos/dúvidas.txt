@@ -1,0 +1,13 @@
+O que é npm?  --- relacionado ao node----aula de dockercompose(aula 52)
+RESPOSTA: npm é  um gerenciador de pacotes do Node ( faz a mesma função do apt, apt-get, yum etc...)
+
+    - npm i --save express@4.15.3 mongoose@4.11.1 node-restful@0.2.6 body-parser@1.17.2 cors@2.8.3  ---> comando usado na aula (dependencias que iremos usar)
+
+O que são dependências?
+RESPOSTA: São as partes necessárias para um projeto funcionar 100%, EX: a aplicação depende do postgresql10.4, Java 8 e Node, logo todos são dependências da aplicação.
+
+Assistir aula sobre formato .yml e colocar o entendido sobre o arquivo aqui.
+RESPOSTAS: 
+
+
+

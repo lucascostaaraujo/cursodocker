@@ -1,0 +1,50 @@
+
+-------------------------Comandos importantes---------------------------------------
+
+
+docker image prune ---> apaga todas as imagens não tageadas
+
+docker system prune  ---> apaga todos os volumes, imagens não tageados
+
+
+----------------------------------Docker Hub----------------------------------------
+
+
+docker image tag ex-com-copy lucascostaaraujo/ex-com-copy:1.0 --> para gerar nova imagem com nova tag
+
+docker login --username=lucascostaaraujo  ---> para logar no docker hub
+
+docker image push lucascostaaraujo/ex-com-copy:1.0  ---> para publicar uma imagem no docker hub, criando um repositório lá.
+
+
+--------------------------------------REDES-------------------------------------------
+
+---modo bridge----
+
+docker container run -d --net none debiar --> escolhe o tipo de drive de rede que será utilizado no container
+
+docker container run --rm alpine ash -c "ifconig"  ---> O comando executará um container criado a partir da imagem alpine, a flag -d indica que o mesmo será iniciado em modo background, o --rm significa que após finalizar a execução o mesmo será excluído, o ash é um bash mais leve que existe no alpine, -c significa que vai chamar um comando, e o ifconfig é o comando que será executado e retornará as informações de rede do container. OBS a rede acima executada nesse container é a padrão (bridge)
+
+docker container run --rm --net none alpine ash -c "ifconfig" ---> faz a mesma coisa da rede de cima, porém, inicia o container com drive de rede none, ou seja, sem drive de rede, e no retorno do ifconfig ele apresentará apenas a interface de loopback.
+
+docker network ls  ---> lista os drivers de redes que temos
+
+docker network inspect tipo-da-rede (bridge, host, none)  ---> inspeciona a rede
+
+docker container exec -it container1 ifconfig ---> executa o container1 em modo interativo realizando a execução do comando ifconfig e apresentando os resultados na tela
+
+docker network create --driver bridge rede_nova  ---> o comando está criando uma nova rede baseada em modo drive bridge, que se chama rede_nova
+
+docker network conect bridge container3 ---> irá conectar o container3 a rede bridge, passando assim a ter duas interfaces de rede e conseguir pingar os containers existentes nessa outra rede.
+
+docker network disconnect bridge container3 ---> desconecta uma interace de rede do container informado.
+
+----modo host-----
+
+docker container run -d --name container4 --net host alpine sleep 1000  ---> cria o container4 conforme é nomeado, insere o drive de rede de tipo host, e se baseia na imagem alpine
+
+
+
+---------------Comandos utilizados no dia a dia---------------------------
+
+Verificar as portas em execução no sistema: sudo netstat -nutpl
